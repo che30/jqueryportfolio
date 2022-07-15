@@ -638,7 +638,6 @@ window.paceOptions = {
     ajax: false
 };
 document.getElementById("click_form").addEventListener('click',() =>{
-    console.log( document.getElementById('name').value)
 	const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
@@ -648,14 +647,15 @@ function sendEmail(name, email, message) {
  
 	Email.send({
 	Host: "smtp.gmail.com",
-	Username : name,
+	Username : email,
     Password: "ilhqzddckzcafase",
     To: 'che.blancoo58@gmail.com',
-    From: "che.blancoo58@gmail.com",
+    From: email,
 	Subject: `${name} sent you a message`,
 	Body: `Name: ${name} <br> Email: ${email}<br> Message: ${message}`,
-	}).then(() => alert("mail sent successfully")
-	);
+	}).then(()=>{
+        console.log("ok")
+    })
 }
 
 </script>
