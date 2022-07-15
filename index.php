@@ -1,1 +1,1 @@
-<?php include_once("index-it-vertical"); ?>
+<?php include_once("index-it-vertical.html"); ?>
