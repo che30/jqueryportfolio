@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/theme.min.css" />
 <link rel="stylesheet" href="assets/css/color/blue-beige.css" id="color" />
-
+<script src="https://smtpjs.com/v3/smtp.js"></script>  
 </head>
 
 <body class="header-vertical">
@@ -579,7 +579,7 @@
                     <label>Message:</label>
                     <textarea id="message" class="form-control" name="message" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn btn-secondary"><span>Send a message!</span><i class="ti-email"></i></button>
+                <button type="submit" id="click_form" class="btn btn-secondary"><span>Send a message!</span><i class="ti-email"></i></button>
             </form>
         </div>
     </div>
@@ -637,12 +637,32 @@ window.paceOptions = {
     target: '#page-loader',
     ajax: false
 };
+document.getElementById("click_form").addEventListener('click',() =>{
+    console.log( document.getElementById('name').value)
+	const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+	sendEmail(name,email,message);
+})
+function sendEmail(name, email, message) {
+ 
+	Email.send({
+	Host: "smtp.gmail.com",
+	Username : name,
+    Password: "ilhqzddckzcafase",
+    To: 'che.blancoo58@gmail.com',
+    From: "che.blancoo58@gmail.com",
+	Subject: `${name} sent you a message`,
+	Body: `Name: ${name} <br> Email: ${email}<br> Message: ${message}`,
+	}).then(() => alert("mail sent successfully")
+	);
+}
+
 </script>
 <script src="assets/js/plugins.js"></script>
 
 <!-- JS Core -->
 <script src="assets/js/core.min.js"></script>
-
 <!-- Google Map API -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
