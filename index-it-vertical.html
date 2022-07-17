@@ -630,7 +630,7 @@
 
 <!-- JS Libraries -->
 <script src="assets/js/jquery-1.11.3.min.js"></script>
-
+<script src="https://smtpjs.com/v3/smtp.js"></script>  
 <!-- JS Plugins -->
 <script>
 window.paceOptions = {
@@ -644,11 +644,11 @@ document.getElementById("click_form").addEventListener('click',() =>{
 	sendEmail(name,email,message);
 })
 function sendEmail(name, email, message) {
- 
+    // smtp.elasticemail.com
 	Email.send({
 	Host: "smtp.gmail.com",
-	Username : email,
-    Password: "ilhqzddckzcafase",
+	Username : 'che.blancoo58@gmail.com',
+    Password: "8A5C85BF13148C5700C72A2FF197FFEE1665",
     To: 'che.blancoo58@gmail.com',
     From: email,
 	Subject: `${name} sent you a message`,
